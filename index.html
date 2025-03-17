@@ -1,52 +1,92 @@
-'use strict'
+<!DOCTYPE html>
+<html lang="ja">
 
-// イベントリスナーテスト
-// function handleClick(item) {
-//     if (item === 'meat') {
-//         console.log('meatの処理');
-//     } else if (item === 'vegetables') {
-//         console.log('vegetablesの処理');
-//     }
-// }
-
-function handleClick(item) {
-    if (item === 'meat') {
-        document.getElementById('a_01').style.display = 'block';
-    } else if (item === 'vegetables') {
-        document.getElementById('a_02').style.display = 'block';
-    }
-}
-
-// イベントリスナーテスト
-// function handleSportsClick(item) {
-//     if (item === 'ball_sports') {
-//         console.log('球技の処理');
-//     } else if (item === 'martial_arts') {
-//         console.log('格闘技の処理');
-//     }
-// }
-
-function handleSportsClick(item) {
-    if (item === 'ball_sports') {
-        document.getElementById('a_03').style.display = 'block';
-    } else if (item === 'martial_arts') {
-        document.getElementById('a_04').style.display = 'block';
-    }
-}
-
-// イベントリスナーテスト
-// function handleholdClick(item) {
-//     if (item === 'stress') {
-//         console.log('ストレスの処理');
-//     } else if (item === 'passion') {
-//         console.log('情熱の処理');
-//     }
-// }
-
-function handleholdClick(item) {
-    if (item === 'stress') {
-        document.getElementById('a_05').style.display = 'block';
-    } else if (item === 'passion') {
-        document.getElementById('a_06').style.display = 'block';
-    }
-}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="Assess.css">
+  <script type="text/javascript" src="modules/lodash.min.js"></script>
+  <script type="text/javascript" src="modules/test-boilerplate.js"></script>
+	<script type="text/javascript" src="Assess.js"></script>
+</head>
+<!-- ---opening body--- -->
+<body>
+  <h1>
+    <div class="box" id="makeImg">
+      <span>< 最終プレゼンページ ></span>
+    </div>
+  </h1>
+  <h2>
+    <div class = "myself" id = "me">
+      08_Kazuto Sato
+    </div>
+  </h2>
+  <h2>
+    <div class = "intro" id = "info">
+      <br>私の最終プレゼンでは、<br>
+      当講座で学習した<font color="blue"><font size="12">JavaScriptの基礎知識</font></font>(関数/ループ/条件分岐等)や<br>
+      <font color="blue"><font size="12">html・css</font></font>を活用し、<font color="red"><font size="18">「スポーツ診断ページ」</font></font>を作成しました。
+    </div>
+  </h2>
+  <h3>※今回のスポーツ診断テストでは、質問の回答結果よりあなたに向いているスポーツを表示します。<br>
+        結果はあくまでも「Kazutoアルゴリズム」を基にはじき出されたもので、思い込みや偏見がございます。予めご了承下さい...</h3>
+<!-- ---contents body--- -->
+<body>
+<!-- 最初の選択肢 -->
+<div class="choose_box">
+<div id="q_01" class="food">
+ <p>Q1_あなたの好きな食べ物は？</p>
+ <ul class="flexbox fw">
+ <li class="even"><a class="btn" href="#a_01" onclick="handleClick('meat')">とにかく肉！！</a></li>
+ <li class="odd"><a class="btn" href="#a_02" onclick="handleClick('vegetables')">野菜や果物大好き！</a></li>
+ </ul>
+</div>
+<!-- #a_01 2階層目の選択肢 -->
+<div id="a_01" style="display: none;">
+  <p>Q2_パワフルなあなたが好きな競技タイプは？</p>
+  <ul class="flexbox fw">
+  <li class="even"><a class="btn" href="#a_03" onclick="handleSportsClick('ball_sports')">球技(ボールを使ったスポーツ)</a></li>
+  <li class="odd"><a class="btn" href="#a_04" onclick="handleSportsClick('martial_arts')">格闘技(身体をぶつけ合うスポーツ)</a></li>
+  </ul>
+</div>
+<!-- #a_02 2階層目の選択肢 -->
+<div id="a_02" style="display: none;">
+  <p>Q2_健康で知的なあなたが抱えているものは？</p>
+  <ul class="flexbox fw">
+  <li class="even"><a class="btn" href="#a_05" onclick="handleholdClick('stress')">責任感からくるストレス</a></li>
+  <li class="odd"><a class="btn" href="#a_06" onclick="handleholdClick('passion')">使命感からくる情熱</a></li>
+  </ul>
+</div>
+<!-- #a_03 3階層目の答え -->
+<div id="a_03" style="display: none;">
+  <p>あなたにおすすめのスポーツは…</p>
+  <h4>ずばり『ラグビー』です！！</h4>
+  <img src="../DIG/Ruggerman_pass.jpeg">
+  <h5>パワフルな球技と言えばやっぱりラグビー！！<br>
+    ボールを前に運ぶために自身の身体を犠牲にしながら突進します。</h5>
+</div>
+<!-- #a_04 3階層目の答え -->
+<div id="a_04" style="display: none;">
+  <p>あなたにおすすめのスポーツは…</p>
+  <h4>ずばり『ラグビー』です！！</h4>
+  <img src="../DIG/Ruggerman_tackle.jpeg">
+  <h5>ラグビーはボールがおまけのもはや格闘技！！<br>
+    理性的な獣たちがお互いの尊厳をかけて潰し合う、あなたにぴったりのスポーツです！！
+</div>
+<!-- #a_03 3階層目の答え -->
+<div id="a_05" style="display: none;">
+  <p>あなたにおすすめのスポーツは…</p>
+  <h4>ずばり『ラグビー』です！！</h4>
+  <img src="../DIG\Ruggerman_stress.jpeg">
+  <h5>ストレス発散にラグビーはピッタリ！！<br>
+    苦手なあの人とも身体をぶつけ合えば認め合える。ノーサイド精神です。</h5>
+</div>
+<!-- #a_04 3階層目の答え -->
+<div id="a_06" style="display: none;">
+  <p>あなたにおすすめのスポーツは…</p>
+  <h4>ずばり『ラグビー』です！！</h4>
+  <img src="../DIG\Ruggerman_passion.jpeg">
+  <h5>使命感が強い人ほどラグビーにはまっていきます！<br>
+    自分の使命の為ならば向かってくる大男にも屈しない。精神鍛錬にも最適！！
+</body>
